@@ -1,5 +1,5 @@
 const getPuzzle = async (wordCount) => {
-    const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+    const response = await fetch(`//puzzle.mead.io/puzzle?wordCount=${wordCount}`)
 
     if(response.status === 200) {
         const data = await response.json()
@@ -9,20 +9,8 @@ const getPuzzle = async (wordCount) => {
     }
 }
 
-// const getPuzzleOld = (wordCount) => {
-//     return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`).then((response) => {
-//         if (response.status === 200) {
-//             return response.json()
-//         } else {
-//             throw new Error('Unable to fetch the puzzle')
-//         }
-//     }).then((data) => {
-//          return data.puzzle
-//     })
-//  }
-
 const getCountry = async (countryCode) => {
-    const response = await fetch('http://restcountries.eu/rest/v2/all')
+    const response = await fetch('//restcountries.eu/rest/v2/all')
     
     if(response.status === 200) {
         const data = await response.json()
@@ -39,6 +27,15 @@ const getCurrentCountry = async () => {
     return country
 }
 
+const getLocation = async () => {
+    const response = await fetch('//ipinfo.io/json?token=8924b6f7cddba1')
+        if(response.status === 200) {
+            return response.json()
+        } else {
+            throw new Error('Unable to fetch the country')
+        }
+}
+
 // const getCountryOld = (countryCode) => {
 //     return fetch('http://restcountries.eu/rest/v2/all').then((response) => {
 //         if(response.status === 200) {
@@ -49,14 +46,18 @@ const getCurrentCountry = async () => {
 //     }).then((data) => data.find((country) => country.alpha2Code === countryCode))
 // }
 
-const getLocation = async () => {
-    const response = await fetch('http://ipinfo.io/json?token=8924b6f7cddba1')
-        if(response.status === 200) {
-            return response.json()
-        } else {
-            throw new Error('Unable to fetch the country')
-        }
-}
+
+// const getPuzzleOld = (wordCount) => {
+//     return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`).then((response) => {
+//         if (response.status === 200) {
+//             return response.json()
+//         } else {
+//             throw new Error('Unable to fetch the puzzle')
+//         }
+//     }).then((data) => {
+//          return data.puzzle
+//     })
+//  }
 
 //PROMISES
 
