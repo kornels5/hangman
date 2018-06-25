@@ -36,6 +36,8 @@ const getLocation = async () => {
         }
 }
 
+export { getPuzzle as default }
+
 // const getCountryOld = (countryCode) => {
 //     return fetch('http://restcountries.eu/rest/v2/all').then((response) => {
 //         if(response.status === 200) {

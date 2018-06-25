@@ -28,14 +28,6 @@ class Hangman {
 
     calculateStatus(){
         let finished = this.word.every(letter => this.guessedLetters.includes(letter) || letter === ' ')
-
-        // this.word.forEach((letter) => {
-        //     if(this.guessedLetters.includes(letter)) {
-                
-        //     } else {
-        //         finished = false
-        //     }
-        // })
     
         if(this.remainingGuesses === 0) {
             this.status = 'failed'
@@ -71,3 +63,4 @@ class Hangman {
     }
 }
 
+export { Hangman as default }
